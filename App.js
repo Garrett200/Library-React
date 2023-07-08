@@ -17,7 +17,6 @@ function App() {
     cart.forEach((item) => {
       total += (item.salePrice || item.originalPrice) * item.quantity;
     });
-    console.log(total)
     return {
       subtotal: total * 0.9,
       tax: total * 0.1,

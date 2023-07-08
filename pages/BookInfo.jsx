@@ -16,7 +16,6 @@ const BookInfo = ({ books, addItemToCart, cart, calcPrices  }) => {
   function addBookToCart(book) {
     setAdded(true);
     addItemToCart(book);
-    console.log(cart)
   }
 
   function bookInCart() {
