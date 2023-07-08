@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import EmptyCart from "../assets/empty_cart.svg";
 
-const Cart = ({ cart, updateCart, removeItem, totals }) => {
+const Cart = ({ cart, changeQuantity, removeItem, total, subtotal, tax }) => {
   return (
     <div id="books__body">
       <main id="books__main">
@@ -51,7 +51,7 @@ const Cart = ({ cart, updateCart, removeItem, totals }) => {
                           max={99}
                           value={item.quantity}
                           onChange={(event) =>
-                            updateCart(item, event.target.value)
+                            changeQuantity(item, event.target.value)
                           }
                         />
                       </div>
@@ -77,15 +77,15 @@ const Cart = ({ cart, updateCart, removeItem, totals }) => {
               <div className="total">
                 <div className="total__item total__sub-total">
                   <span>Subtotal</span>
-                  <span>${totals.subtotal.toFixed(2)}</span>
+                  <span>${subtotal.toFixed(2)}</span>
                 </div>
                 <div className="total__item total__tax">
                   <span>Tax</span>
-                  <span>${totals.tax.toFixed(2)}</span>
+                  <span>${tax.toFixed(2)}</span>
                 </div>
                 <div className="total__item total__price">
                   <span>Total</span>
-                  <span>${totals.total.toFixed(2)}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
                 <button className="btn btn__checkout no-cursor" onClick={() => alert(`Haven't got around to doing this :(`)}>
                   Proceed to checkout
